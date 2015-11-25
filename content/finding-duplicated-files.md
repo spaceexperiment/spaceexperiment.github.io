@@ -1,6 +1,7 @@
 Title: Finding duplicated files
 Date: 2014-08-08 13:20
 Author: jibreel
+Category: python
 Slug: finding-duplicated-files
 
 [os.walk](https://docs.python.org/2/library/os.html#os.walk) makes it

@@ -1,6 +1,7 @@
 Title: Simple CRUD-like admin interface with Flask and WTForm
 Date: 2014-08-02 07:36
 Author: jibreel
+Category: python
 Slug: simple-crud-like-admin-interface-with-flask-and-wtform
 
 Without a doubt, many times over the course as a web developer, you will

@@ -1,6 +1,7 @@
 Title: Basic analytic in Python using signals and Redis
 Date: 2014-12-02 19:30
 Author: jibreel
+Category: python
 Slug: basic-analytic-in-python-using-signals-and-redis
 
 A slightly underused(or less needed for most projects) feature of
