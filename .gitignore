@@ -45,4 +45,5 @@ celerybeat*
 # user added
 .sass-cache
 *.log
+.DS_Store
 

@@ -21,7 +21,7 @@ make basic analytics of your site.
 
 <span class="highlight-blue">Flask</span>
 
-```
+```python
 app = Flask('my_app')
 
 @app.before_request
@@ -36,7 +36,7 @@ def analytics():
 
 <span class="highlight-blue">Django</span>
 
-```
+```python
 # We will be using middleware.
 
 class Analytics(object):
