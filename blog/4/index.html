@@ -1,0 +1,164 @@
+    <nav id="menu">
+        <aside>
+            <div class="profile"><img width="150", height="150" src="http://jibreel.me/theme/img/me.jpg" alt="profile image"></div>
+
+            <h3>A blog on Web-Development, Python and Stuff</h3>
+
+            <div class="network">
+                <a href="https://twitter.com/jibbo">
+                    <img src="http://jibreel.me/theme/icon/circle/Twitter.png" alt="Twitter">
+                </a>
+
+                <a href="https://www.linkedin.com/in/jibreel">
+                    <img src="http://jibreel.me/theme/icon/circle/LinkedIn.png" alt="LinkdIn">
+                </a>
+
+                <a href="https://www.facebook.com/jibreel">
+                    <img src="http://jibreel.me/theme/icon/circle/Facebook.png" alt="Facebook">
+                </a>
+
+                <a href="https://plus.google.com/u/0/+jibreeltozlok/posts">
+                    <img src="http://jibreel.me/theme/icon/circle/GooglePlus.png" alt="GooglePlus">
+                </a>
+
+                <a href="skype:jibbo1988?add">
+                    <img src="http://jibreel.me/theme/icon/circle/Skype.png" alt="Skype">
+                </a>
+            </div>
+
+            <a class="button" href="/">home</a>
+                <a class="button " href="http://jibreel.me/about-me/">About me</a>
+        </aside>
+
+        </ul>
+    </nav><!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>jibreel</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="A blog on Web-Development and Python">
+        <link rel="stylesheet" href="http://jibreel.me/theme/css/index.css" />
+
+        <link href="http://jibreel.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="jibreel Full Atom Feed" />
+
+
+
+
+</head>
+
+<body id="index">
+<section id="content" class="body">
+    <header>
+        <h2 class="entry-title">
+              <a title="Permalink to Basic analytic in Python using signals and Redis"
+                 href="http://jibreel.me/blog/4/"
+                 rel="bookmark">
+                     Basic analytic in Python using signals and Redis
+               </a>
+         </h2>
+    </header>
+
+    <footer class="post-info">
+        <time class="published" datetime="2014-12-02T19:30:00+02:00">
+            Tue 02 December 2014
+        </time>
+
+    </footer>
+
+    <div class="article-wrapper">
+        <article>
+            <p>A slightly underused(or less needed for most projects) feature of
+frameworks are the signals they provide.</p>
+<p>Signals allows you to hook a certain action initiated to some code that
+you provide.</p>
+<p>For example, whenever there is a request comming to your web
+application, then your framework initiate a signal at the begining of
+the request (before it reaches your view) and a signal at the end of the
+request (after you have rendered your view and it's ready to be sent to
+the user).</p>
+<p>Here is an examples for Django and Flask on how you could use them to
+make basic analytics of your site.</p>
+<p><span class="highlight-blue">Flask</span></p>
+<div class="highlight"><pre><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="s">&#39;my_app&#39;</span><span class="p">)</span>
+
+<span class="nd">@app.before_request</span>
+<span class="k">def</span> <span class="nf">analytics</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">):</span>
+        <span class="n">redis</span><span class="o">.</span><span class="n">zincrby</span><span class="p">(</span><span class="s">&#39;visitors&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="n">redis</span><span class="o">.</span><span class="n">zincrby</span><span class="p">(</span><span class="s">&#39;referrers&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">referrer</span><span class="p">)</span>
+    <span class="n">redis</span><span class="o">.</span><span class="n">zincrby</span><span class="p">(</span><span class="s">&#39;browser&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">user_agent</span><span class="o">.</span><span class="n">browser</span><span class="p">)</span>
+    <span class="n">redis</span><span class="o">.</span><span class="n">zincrby</span><span class="p">(</span><span class="s">&#39;platform&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">user_agent</span><span class="o">.</span><span class="n">platform</span><span class="p">)</span>
+</pre></div>
+
+
+<p><span class="highlight-blue">Django</span></p>
+<div class="highlight"><pre><span class="c"># We will be using middleware.</span>
+
+<span class="k">class</span> <span class="nc">Analytics</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">process_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">):</span>
+            <span class="n">redis</span><span class="o">.</span><span class="n">zincrby</span><span class="p">(</span><span class="s">&#39;visitors&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="n">redis</span><span class="o">.</span><span class="n">zincrby</span><span class="p">(</span><span class="s">&#39;referrers&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;HTTP_REFERER&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">))</span>
+        <span class="n">redis</span><span class="o">.</span><span class="n">zincrby</span><span class="p">(</span><span class="s">&#39;user_agent&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;HTTP_USER_AGENT&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Although this is a very simple example, but they don't have to be overy
+complex to be usefull.</p>
+<p>This is taking data from the request and storing them in redis as
+ordered set.</p>
+<p>Every time the same value occures it will increase it's score by one,
+that's what <code>zincrby</code> does.</p>
+<p>The first one is the url path, this allows you to track how many page
+views any page had.</p>
+<p>Note that we are adding it only if the url ends with "/" because usually
+if someone visites <code>http://.../path</code> they
+get redirected to <code>http://.../path/</code> with a
+slash at the end, so we don't save it twice.</p>
+<p>The second one is for the referers, when a user get to your page through
+another page the browser would set the Referer header in the HTTP
+request so you know where it is coming from.</p>
+<p>But now that this can easy be forged, any one can visit your site and
+modify this header by intention.</p>
+<p>The third is the browser the user is using, the framework works this out
+from the HTTP header <code>User-Agent</code>.</p>
+<p>The fourth is the platform (linux, windows, ios ...), this is also
+worked out from the <code>User-Agent</code> header.</p>
+<p>See, in just a few lines of code we are accumelating data about page
+views, where they are coming from. what browser they are using, and what
+platform or OS.</p>
+<p>In Django you will have to include that in as middleware e.g. save this
+as mymiddleware.py in your app folder and add
+'app.mymiddleware.Analytics' to the setting MIDDLEWARE_CLASSES.</p>
+<p>Also we used <code>HTTP_USER_AGENT</code> instead of
+browser and platform, that is because django doesn't parse this header
+string, you will have to use a library to parse that.</p>
+<p>The header string looks something like this <code>Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X)
+AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B179
+Safari/7534.48.3</code></p>
+<p>You can use <a href="https://pypi.python.org/pypi/user-agents/">this library</a> to
+parse it.</p>
+<p>To read the data simply query the keys with redis, e.g.</p>
+<div class="highlight"><pre>&gt;&gt; redis.zrange(&#39;visitors&#39;, 0, -1, withscores=True)
+
+&gt;&gt; [(&#39;/atom/&#39;, 2922.0), (&#39;/blog/1/&#39;, 8360.0), (&#39;/&#39;, 8714.0)]
+</pre></div>
+
+
+<p>A tuple of the path and the score(view count)</p>
+<p>There are some other uses and signals available, for database <code>pre_save</code>,
+<code>post_save</code>, <code>pre_delete</code> .. and so on.</p>
+<p>Other uses is also by tracking the users remote ip and ignore a request
+after a certain amount of POST request for a form, so for example after
+posting a 5 comments in an hour then just ignore the POST request, you
+don't handle it to avoid spam.</p>
+<p>Although this is good, it's not perfect as one can use proxy, but for
+most cases this would work.</p>
+        </article>
+    </div>
+
+</section>
+</body>
+</html>
