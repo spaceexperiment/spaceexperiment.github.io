@@ -41,6 +41,9 @@ def rebuild():
     clean()
     build()
 
+def github():
+    local('git subtree push --prefix output github master')
+
 def regenerate():
     """Automatically regenerate site upon file modification"""
     local('pelican -r -s pelicanconf.py')

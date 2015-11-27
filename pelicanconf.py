@@ -21,6 +21,7 @@ AUTHOR_FEED_RSS = None
 
 STATIC_PATHS = ['images', 'pdfs', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
+FILES_TO_COPY = (('pdfs/Resume.pdf', 'resume.pdf'),)
 
 ARTICLE_URL = '{slug}'
 ARTICLE_SAVE_AS = '{slug}/index.html'
