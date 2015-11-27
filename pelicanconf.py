@@ -19,9 +19,9 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-STATIC_PATHS = ['images', 'pdfs', 'extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
-FILES_TO_COPY = (('pdfs/Resume.pdf', 'resume.pdf'),)
+STATIC_PATHS = ['images', 'extra']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
+                       'extra/Resume.pdf': {'path': 'resume.pdf'}}
 
 ARTICLE_URL = '{slug}'
 ARTICLE_SAVE_AS = '{slug}/index.html'
