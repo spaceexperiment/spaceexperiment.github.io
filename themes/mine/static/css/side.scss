@@ -10,7 +10,7 @@
   background: $black;
   color: white;
   border: none;
-  @media (min-width: 941px) {
+  @media all and (min-width: 941px) {
     display: none;
   }
 }
@@ -49,7 +49,7 @@ nav {
     color: #537974;
   }
 
-  @media (max-width: 940px) {
+  @media all and (max-width: 940px) {
     display: none;
     height: 100%;
     overflow-y: scroll;
@@ -64,6 +64,15 @@ nav {
       height: 150px;
       margin: 0 auto;
       border-radius: 50%;
+      @media all and (max-width: 940px) {
+        width: 100px;
+        height: 100px;
+        img{
+          width: 100px;
+          height: 100px;
+        }
+      }
+
     }
     .network {
       margin: 0 auto 20px;
@@ -95,42 +104,42 @@ nav {
     }
   }
 
-  aside.posts {
-    width: 100%;
-    padding-bottom: 10px;
-    .url-wrapper {
-      width: 100%;
-      padding: 0;
-      a {
-        padding: 5px 0 5px 25px;
-        transition: all 0.3s;
-        font-size: 0.9em;
-        font-weight: bold;
-        border-radius: 2px;
-        white-space: nowrap;
-        &:hover {
-          background: #e0e0e0;
-        }
-      }
-      @media (max-width: 940px) {
-        text-align: center;
-        padding: 0;
-        font-size: 0.7em;
-        a {
-          padding: 0;
-          white-space: normal;
-        }
-      }
-    }
-  }
+  // aside.posts {
+  //   width: 100%;
+  //   padding-bottom: 10px;
+  //   .url-wrapper {
+  //     width: 100%;
+  //     padding: 0;
+  //     a {
+  //       padding: 5px 0 5px 25px;
+  //       transition: all 0.3s;
+  //       font-size: 0.9em;
+  //       font-weight: bold;
+  //       border-radius: 2px;
+  //       white-space: nowrap;
+  //       &:hover {
+  //         background: #e0e0e0;
+  //       }
+  //     }
+  //     @media all and (max-width: 940px) {
+  //       text-align: center;
+  //       padding: 0;
+  //       font-size: 0.7em;
+  //       a {
+  //         padding: 0;
+  //         white-space: normal;
+  //       }
+  //     }
+  //   }
+  // }
 
-  aside.posts.posts-alone {
-    @media (min-width: 940px) {
-      a {
-        opacity: 0.3;
-      }
-    }
-  }
+  // aside.posts.posts-alone {
+  //   @media all and (min-width: 940px) {
+  //     a {
+  //       opacity: 0.3;
+  //     }
+  //   }
+  // }
 
 
 

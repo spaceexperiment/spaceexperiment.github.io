@@ -11,13 +11,14 @@ $light-dark: rgb(70, 70, 70);
 
 body{
 	margin: 0;
+	background: #37788C;
 }
 
 .body-wrapper{
 	position: relative;
 	margin-left: 250px;
 	width: calc(100% - 250px);
-	@media (max-width: 940px) {
+	@media all and (max-width: 940px) {
 		width: 100%;
 		margin-left: 0;
 	}
@@ -25,12 +26,14 @@ body{
 
 .body {
 	transition: all 0.2s;
-	margin: 0 auto;
-	padding: 50px 10px 0;
+    margin: 50px auto;
+    padding: 20px 40px;
 	max-width: 600px;
+	background: white;
 	font-size: 18px;
-	@media (max-width: 660px) {
-		padding: 30px;
+	box-shadow: 0px 3px 40px rgba(0, 0, 0, 0.6);
+	@media all and (max-width: 660px) {
+		padding: 30px 10px;
 	}
 }
 
@@ -39,7 +42,7 @@ article {
 	letter-spacing: 0.05em;
 	line-height: 1.3em;
 	color: $light-dark;
-	@media (max-width: 660px) {
+	@media all and (max-width: 660px) {
 		font-size: 0.9em;
 	}
 }
@@ -89,6 +92,10 @@ code {
 	padding: 25px 0 25px 25px;
 	overflow-x: auto;
 	background: $black;
+	@media all and (max-width: 660px) {
+		padding: 25px 0 25px 10px;
+	}
+
 	pre {
 		margin: 0;
 		padding: 0;
