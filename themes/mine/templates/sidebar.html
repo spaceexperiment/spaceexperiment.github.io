@@ -1,40 +1,59 @@
-    <nav id="menu">
-        <aside>
+<script type="text/javascript">
+    function toggleMenu(){
+        var nav = document.getElementById('menu');
+        var hamburger = document.getElementsByClassName('hamburger')[0];
 
-            <h3>{{SITESUBTITLE}}</h3>
+        var display = nav.currentStyle ? nav.currentStyle.display :
+                                      getComputedStyle(nav, null).display;
+        if (display === 'none'){
+            nav.style.display = 'block';
+            hamburger.style.left = '260px';
+        } else {
+            nav.style.display = 'none';
+            hamburger.style.left = '10px';
+        }
+    }
+</script>
 
-            <div class="profile"><img width="150", height="150" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/me.jpg" alt="profile image"></div>
+<button class="hamburger" onclick="toggleMenu()">☰</button>
 
-            <h4>Freelance web-developer</h4>
+<nav id="menu">
+    <aside>
+
+        <h3>{{SITESUBTITLE}}</h3>
+
+        <div class="profile"><img width="150", height="150" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/me.jpg" alt="profile image"></div>
+
+        <h4>Freelance web-developer</h4>
 
 
-            <div class="network">
-                <a href="https://twitter.com/jibbo">
-                    <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/Twitter.png" width="33px" height="33px" alt="Twitter">
-                </a>
+        <div class="network">
+            <a href="https://twitter.com/jibbo">
+                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/Twitter.png" width="33px" height="33px" alt="Twitter">
+            </a>
 
-                <a href="https://www.linkedin.com/in/jibreel">
-                    <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/LinkedIn.png" width="33px" height="33px" alt="LinkdIn">
-                </a>
+            <a href="https://www.linkedin.com/in/jibreel">
+                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/LinkedIn.png" width="33px" height="33px" alt="LinkdIn">
+            </a>
 
-                <a href="https://www.facebook.com/jibreel">
-                    <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/Facebook.png" width="33px" height="33px" alt="Facebook">
-                </a>
+            <a href="https://www.facebook.com/jibreel">
+                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/Facebook.png" width="33px" height="33px" alt="Facebook">
+            </a>
 
-                <a href="https://plus.google.com/u/0/+jibreeltozlok/posts">
-                    <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/GooglePlus.png" width="33px" height="33px" alt="GooglePlus">
-                </a>
+            <a href="https://plus.google.com/u/0/+jibreeltozlok/posts">
+                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/GooglePlus.png" width="33px" height="33px" alt="GooglePlus">
+            </a>
 
-                <a href="skype:jibbo1988?add">
-                    <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/Skype.png" width="33px" height="33px" alt="Skype">
-                </a>
-            </div>
+            <a href="skype:jibbo1988?add">
+                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/icon/Skype.png" width="33px" height="33px" alt="Skype">
+            </a>
+        </div>
 
-            <a class="button" href="/">home</a>
-          {% for p in pages %}
-                <a class="button {% if p == page %}active{% endif %}" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
-          {% endfor %}
-        </aside>
+        <a class="button" href="/">home</a>
+      {% for p in pages %}
+            <a class="button {% if p == page %}active{% endif %}" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+      {% endfor %}
+    </aside>
 
-        </ul>
-    </nav>
+    </ul>
+</nav>

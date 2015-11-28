@@ -248,6 +248,22 @@
   color: #a6e22e; }
 
 /* Generic.Inserted & Diff Inserted */
+.hamburger {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 1.3em;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 0;
+  background: #333333;
+  color: white;
+  border: none; }
+  @media (min-width: 941px) {
+    .hamburger {
+      display: none; } }
+
 nav {
   position: fixed;
   width: 250px;
@@ -278,10 +294,9 @@ nav {
     color: #537974; }
   @media (max-width: 940px) {
     nav {
-      position: relative;
-      display: block;
-      width: 100%;
-      margin: 0; } }
+      display: none;
+      height: 100%;
+      overflow-y: scroll; } }
   nav aside {
     margin: 50px auto;
     width: 80%; }
@@ -312,23 +327,6 @@ nav {
         background: rgba(255, 255, 255, 0.26); }
     nav aside .button + .button {
       border-top: 1px solid rgba(255, 255, 255, 0.25); }
-    @media (max-width: 940px) {
-      nav aside {
-        margin: 0 auto;
-        width: 90%;
-        font-size: 2em; }
-        nav aside h3 {
-          margin: 0;
-          padding-top: 0.5em;
-          text-align: center; }
-        nav aside:first-child {
-          font-size: 1.6em; }
-          nav aside:first-child a {
-            background: 0;
-            border: 0;
-            padding: 0 0 10px;
-            display: block;
-            text-align: center; } }
   nav aside.posts {
     width: 100%;
     padding-bottom: 10px; }
@@ -450,6 +448,18 @@ nav {
   left: 0;
   right: 0;
   bottom: 0; }
+
+body {
+  margin: 0; }
+
+.body-wrapper {
+  position: relative;
+  margin-left: 250px;
+  width: calc(100% - 250px); }
+  @media (max-width: 940px) {
+    .body-wrapper {
+      width: 100%;
+      margin-left: 0; } }
 
 .body {
   transition: all 0.2s;

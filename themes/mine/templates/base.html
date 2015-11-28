@@ -24,7 +24,10 @@
 </head>
 
 <body id="index">
-    {% block content %}{% endblock %}
+
+    <div class="body-wrapper">
+        {% block content %}{% endblock %}
+    </div>
 
     {% if GOOGLE_ANALYTICS %}
        <script>

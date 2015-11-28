@@ -1,3 +1,20 @@
+.hamburger{
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 1.3em;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 0;
+  background: $black;
+  color: white;
+  border: none;
+  @media (min-width: 941px) {
+    display: none;
+  }
+}
+
 nav {
   position: fixed;
   width: 250px;
@@ -33,10 +50,9 @@ nav {
   }
 
   @media (max-width: 940px) {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin: 0;
+    display: none;
+    height: 100%;
+    overflow-y: scroll;
   }
 
   aside {
@@ -76,27 +92,6 @@ nav {
     }
     .button + .button{
       border-top: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    @media (max-width: 940px) {
-      margin: 0 auto;
-      width: 90%;
-      font-size: 2em;
-      h3 {
-        margin: 0;
-        padding-top: 0.5em;
-        text-align: center;
-      }
-      &:first-child {
-        font-size: 1.6em;
-        a {
-          background: 0;
-          border: 0;
-          padding: 0 0 10px;
-          display: block;
-          text-align: center;
-        }
-      }
     }
   }
 

@@ -14,44 +14,65 @@
 </head>
 
 <body id="index">
-    <nav id="menu">
-        <aside>
 
-            <h3>A blog on Web-Development, Python and Stuff</h3>
+    <div class="body-wrapper">
+<script type="text/javascript">
+    function toggleMenu(){
+        var nav = document.getElementById('menu');
+        var hamburger = document.getElementsByClassName('hamburger')[0];
 
-            <div class="profile"><img width="150", height="150" src="http://jibreel.me/theme/img/me.jpg" alt="profile image"></div>
+        var display = nav.currentStyle ? nav.currentStyle.display :
+                                      getComputedStyle(nav, null).display;
+        if (display === 'none'){
+            nav.style.display = 'block';
+            hamburger.style.left = '260px';
+        } else {
+            nav.style.display = 'none';
+            hamburger.style.left = '10px';
+        }
+    }
+</script>
 
-            <h4>Freelance web-developer</h4>
+<button class="hamburger" onclick="toggleMenu()">☰</button>
+
+<nav id="menu">
+    <aside>
+
+        <h3>A blog on Web-Development, Python and Stuff</h3>
+
+        <div class="profile"><img width="150", height="150" src="http://jibreel.me/theme/img/me.jpg" alt="profile image"></div>
+
+        <h4>Freelance web-developer</h4>
 
 
-            <div class="network">
-                <a href="https://twitter.com/jibbo">
-                    <img src="http://jibreel.me/theme/icon/Twitter.png" width="33px" height="33px" alt="Twitter">
-                </a>
+        <div class="network">
+            <a href="https://twitter.com/jibbo">
+                <img src="http://jibreel.me/theme/icon/Twitter.png" width="33px" height="33px" alt="Twitter">
+            </a>
 
-                <a href="https://www.linkedin.com/in/jibreel">
-                    <img src="http://jibreel.me/theme/icon/LinkedIn.png" width="33px" height="33px" alt="LinkdIn">
-                </a>
+            <a href="https://www.linkedin.com/in/jibreel">
+                <img src="http://jibreel.me/theme/icon/LinkedIn.png" width="33px" height="33px" alt="LinkdIn">
+            </a>
 
-                <a href="https://www.facebook.com/jibreel">
-                    <img src="http://jibreel.me/theme/icon/Facebook.png" width="33px" height="33px" alt="Facebook">
-                </a>
+            <a href="https://www.facebook.com/jibreel">
+                <img src="http://jibreel.me/theme/icon/Facebook.png" width="33px" height="33px" alt="Facebook">
+            </a>
 
-                <a href="https://plus.google.com/u/0/+jibreeltozlok/posts">
-                    <img src="http://jibreel.me/theme/icon/GooglePlus.png" width="33px" height="33px" alt="GooglePlus">
-                </a>
+            <a href="https://plus.google.com/u/0/+jibreeltozlok/posts">
+                <img src="http://jibreel.me/theme/icon/GooglePlus.png" width="33px" height="33px" alt="GooglePlus">
+            </a>
 
-                <a href="skype:jibbo1988?add">
-                    <img src="http://jibreel.me/theme/icon/Skype.png" width="33px" height="33px" alt="Skype">
-                </a>
-            </div>
+            <a href="skype:jibbo1988?add">
+                <img src="http://jibreel.me/theme/icon/Skype.png" width="33px" height="33px" alt="Skype">
+            </a>
+        </div>
 
-            <a class="button" href="/">home</a>
-                <a class="button " href="http://jibreel.me/about-me/">About me</a>
-        </aside>
+        <a class="button" href="/">home</a>
+            <a class="button " href="http://jibreel.me/about-me/">About me</a>
+    </aside>
 
-        </ul>
-    </nav>
+    </ul>
+</nav>
 <section id="content" class="body">
     <header>
         <h2 class="entry-title">
@@ -307,6 +328,7 @@ repository</a></p>
     </div>
 
 </section>
+    </div>
 
        <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

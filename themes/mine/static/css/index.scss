@@ -1,13 +1,27 @@
-@import 'monokai';
-@import 'side';
-@import 'about_me';
-
-
 $primary-color: rgb(60, 204, 242);
 $black: #333333;
 $white: white;
 $light-dark: rgb(70, 70, 70);
 
+@import 'monokai';
+@import 'side';
+@import 'about_me';
+
+
+
+body{
+	margin: 0;
+}
+
+.body-wrapper{
+	position: relative;
+	margin-left: 250px;
+	width: calc(100% - 250px);
+	@media (max-width: 940px) {
+		width: 100%;
+		margin-left: 0;
+	}
+}
 
 .body {
 	transition: all 0.2s;
