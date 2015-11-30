@@ -270,7 +270,7 @@ nav {
   top: 0;
   left: 0;
   bottom: 0;
-  background: #125f77; }
+  background: rgba(8, 42, 80, 0.75); }
   nav h3 {
     margin: 20px 0 20px;
     color: #aeaeae;
@@ -279,14 +279,15 @@ nav {
     color: white;
     line-height: 1.5em;
     font-family: cursive;
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    font-weight: normal; }
   nav h4 {
     text-align: center;
     color: white;
-    font-family: monospace;
     margin-top: 30px;
     margin-bottom: 28px;
-    font-family: cursive; }
+    font-family: cursive;
+    font-weight: normal; }
   nav a {
     display: inline-block;
     text-decoration: none;
@@ -444,7 +445,7 @@ nav {
 
 body {
   margin: 0;
-  background: #37788C; }
+  background: #e1e3e4; }
 
 .body-wrapper {
   position: relative;
@@ -462,7 +463,7 @@ body {
   max-width: 600px;
   background: white;
   font-size: 18px;
-  box-shadow: 0px 3px 40px rgba(0, 0, 0, 0.6); }
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); }
   @media all and (max-width: 660px) {
     .body {
       padding: 30px 10px; } }

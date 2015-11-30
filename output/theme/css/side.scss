@@ -21,7 +21,9 @@ nav {
   top: 0;
   left: 0;
   bottom: 0;
-  background: #125f77;
+  background: rgba(8, 42, 80, 0.75);
+  // background: rgba(18,95,119,1)
+  // box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
 
   h3 {
     margin: 20px 0 20px;
@@ -32,15 +34,17 @@ nav {
     line-height:1.5em;
     font-family: cursive;
     margin-bottom: 40px;
+    font-weight: normal;
   }
 
   h4{
     text-align: center;
     color: white;
-    font-family: monospace;
+    // font-family: monospace;
     margin-top: 30px;
     margin-bottom: 28px;
     font-family: cursive;
+    font-weight: normal;
   }
   a {
     display: inline-block;
