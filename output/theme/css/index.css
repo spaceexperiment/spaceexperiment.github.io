@@ -270,7 +270,8 @@ nav {
   top: 0;
   left: 0;
   bottom: 0;
-  background: rgba(8, 42, 80, 0.75); }
+  background: rgba(0, 0, 0, 0.7);
+  border-right: 1px solid black; }
   nav h3 {
     margin: 20px 0 20px;
     color: #aeaeae;
